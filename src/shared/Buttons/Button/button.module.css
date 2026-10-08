@@ -1,0 +1,308 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.button[data-full-width='true'] {
+  width: 100% !important;
+  justify-content: center;
+}
+
+.button[data-size='large'] {
+  padding: 11px 16px;
+  height: 40px;
+}
+
+.button[data-size='default'] {
+  padding: 8px 16px;
+  height: 32px;
+}
+
+.button[data-size='small'] {
+  padding: 6px 8px;
+  height: 24px;
+}
+
+.button svg {
+  height: fit-content;
+}
+
+.button[data-icon-only='true'] {
+  padding: 8px;
+}
+
+/* ------- disabled ------------ */
+.button:disabled {
+  cursor: not-allowed;
+  color: var(--text-disabled) !important;
+}
+
+.button:disabled[data-type='primary'],
+.button:disabled[data-type='default'] {
+  border: 1px solid var(--border-color) !important;
+  background: var(--bg-container-disabled) !important;
+}
+
+.button:disabled[data-type='tetriary'],
+.button:disabled[data-type='dim'] {
+  border: none !important;
+  background: transparent !important;
+}
+
+.button:disabled svg {
+  color: var(--text-disabled) !important;
+}
+
+/* ---------- loading ----------- */
+.button:not([disabled])[data-loading='true'] {
+  &::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+    border-top-color: #ffffff;
+  }
+  &[data-type='default'],
+  &[data-type='tetriary'] {
+    &::after {
+      border-top-color: var(--text-default);
+    }
+  }
+
+  &[data-type='dim']::after {
+    border-top-color: var(--text-link);
+  }
+}
+
+.button:not([disabled])[data-loading='true'] span {
+  visibility: hidden;
+}
+
+.button:not([disabled])[data-loading='true'] svg {
+  visibility: hidden;
+}
+
+.button:not([disabled])[data-loading='true'] {
+  position: relative;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* -------- primary ---------- */
+.button:not([disabled])[data-type='primary'][data-ghost='false'] {
+  background: var(--primary);
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='false'] svg {
+  color: #fff !important;
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='false']:hover,
+.button:not([disabled])[data-type='primary'][data-ghost='false']:focus {
+  background: var(--primary-hover);
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='false']:active {
+  background: var(--primary-active);
+}
+
+/* -------- primary danger ---------- */
+.button:not([disabled])[data-type='primary'][data-ghost='false'][data-danger='true'] {
+  background: var(--error);
+  outline: none;
+  border: none;
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='false'][data-danger='true']:hover,
+.button:not([disabled])[data-type='primary'][data-ghost='false'][data-danger='true']:focus {
+  background: var(--error-hover);
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='false'][data-danger='true']:active {
+  background: var(--error-active);
+}
+
+/* -------- default ---------- */
+.button:not([disabled])[data-type='default'][data-ghost='false'] {
+  color: var(--text-default);
+  border: 1px solid var(--border-color);
+  background: #fff;
+  outline: none;
+}
+
+.button:not([disabled])[data-type='default'][data-ghost='false']:hover,
+.button:not([disabled])[data-type='default'][data-ghost='false']:focus {
+  color: var(--primary);
+}
+
+.button:not([disabled])[data-type='default'][data-ghost='false']:hover svg,
+.button:not([disabled])[data-type='default'][data-ghost='false']:focus svg {
+  color: var(--primary) !important;
+}
+
+.button:not([disabled])[data-type='default'][data-ghost='false']:active {
+  border-color: var(--primary-active);
+  color: var(--primary-active);
+}
+
+.button:not([disabled])[data-type='default'][data-ghost='false']:active svg {
+  color: var(--primary-active) !important;
+}
+
+/* -------- default danger ---------- */
+.button:not([disabled])[data-type='default'][data-ghost='false'][data-danger='true']:hover,
+.button:not([disabled])[data-type='default'][data-ghost='false'][data-danger='true']:focus {
+  color: var(--error);
+}
+
+.button:not([disabled])[data-type='default'][data-ghost='false'][data-danger='true']:hover svg,
+.button:not([disabled])[data-type='default'][data-ghost='false'][data-danger='true']:focus svg {
+  color: var(--error) !important;
+}
+
+.button:not([disabled])[data-type='default'][data-ghost='false'][data-danger='true']:active {
+  border-color: var(--error-active);
+  color: var(--error-active);
+}
+
+.button:not([disabled])[data-type='default'][data-ghost='false'][data-danger='true']:active svg {
+  color: var(--error-active) !important;
+}
+
+/* -------- dim ---------- */
+.button:not([disabled])[data-type='dim'][data-ghost='false'] {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.button:not([disabled])[data-type='dim'][data-ghost='false'][data-link='true'] {
+  color: var(--text-link);
+  user-select: none;
+}
+
+.button:not([disabled])[data-type='dim'][data-ghost='false']:hover,
+.button:not([disabled])[data-type='dim'][data-ghost='false']:focus {
+  background: #ffffff10;
+}
+
+.button:not([disabled])[data-type='dim'][data-ghost='false']:active {
+  background: #ffffff20;
+}
+
+/* -------- tetriary ---------- */
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'] {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'][data-link='true'] {
+  color: var(--text-link);
+  user-select: none;
+}
+
+.button:not([disabled])[data-type='tetriary'][data-ghost='false']:hover,
+.button:not([disabled])[data-type='tetriary'][data-ghost='false']:focus {
+  background: var(--bg-text-hover);
+}
+
+.button:not([disabled])[data-type='tetriary'][data-ghost='false']:active {
+  background: var(--bg-text-active);
+}
+
+/* -------- tetriary error ---------- */
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'][data-danger='true'] {
+  color: var(--error);
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'][data-danger='true']:hover,
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'][data-danger='true']:focus {
+  background: var(--error-bg);
+}
+
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'][data-danger='true']:active {
+  background: var(--error-bg);
+}
+
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'][data-danger='true']:active {
+  border-color: var(--error-active);
+  color: var(--error-active);
+}
+
+.button:not([disabled])[data-type='tetriary'][data-ghost='false'][data-danger='true']:active svg {
+  color: var(--error-active) !important;
+}
+
+/* -------- primary ghost ---------- */
+.button:not([disabled])[data-type='primary'][data-ghost='true'] {
+  background: transparent;
+  outline: none;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='true']:hover,
+.button:not([disabled])[data-type='primary'][data-ghost='true']:focus {
+  border-color: var(--primary-hover);
+  color: var(--primary-hover);
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='true']:hover svg,
+.button:not([disabled])[data-type='primary'][data-ghost='true']:focus svg {
+  color: var(--primary-hover) !important;
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='true']:active {
+  border-color: var(--primary-active);
+  color: var(--primary-active);
+}
+
+.button:not([disabled])[data-type='primary'][data-ghost='true']:active svg {
+  color: var(--primary-active) !important;
+}
+
+.text {
+  flex-shrink: 0;
+}
+
+.text[data-size='default'],
+.text[data-size='small'] {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.text[data-size='large'] {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text:not([data-disabled='true'])[data-type='primary'][data-ghost='false'] {
+  color: #fff;
+}

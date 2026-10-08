@@ -1,0 +1,165 @@
+.inline-flex-gap {
+  display: inline-flex;
+  gap: 16px;
+}
+
+.inline-flex-gap.center {
+  align-items: center;
+}
+
+.inline-flex-gap.top {
+  align-items: flex-start;
+}
+
+.inline-flex-gap.width100 {
+  width: 100%;
+}
+
+.inline-flex-gap.height100 {
+  height: 100%;
+}
+
+.inline-flex-gap.gap4 {
+  gap: 4px;
+}
+
+.inline-flex-gap.gap8 {
+  gap: 8px;
+}
+
+.inline-flex-gap.gap12 {
+  gap: 12px;
+}
+
+.inline-flex-gap.gap16 {
+  gap: 16px;
+}
+
+.inline-flex-gap.gap24 {
+  gap: 24px;
+}
+
+.inline-flex-gap.gap32 {
+  gap: 32px;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.flex-wrap.gap16 {
+  gap: 16px;
+}
+
+.flex-wrap.gap32 {
+  gap: 32px;
+}
+
+.flex-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-lines.gap4 {
+  gap: 4px;
+}
+
+.flex-lines.gap8 {
+  gap: 8px;
+}
+
+.flex-lines.gap12 {
+  gap: 12px;
+}
+
+.flex-lines.gap16 {
+  gap: 16px;
+}
+
+.flex-lines.gap24 {
+  gap: 24px;
+}
+
+.flex-lines.width100 {
+  width: 100%;
+}
+
+.flex-lines.height100 {
+  height: 100%;
+}
+
+.flex-lines.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-space-between {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+
+.mb16 {
+  margin-bottom: 16px;
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+
+.mt12 {
+  margin-top: 8px;
+}
+
+.mt16 {
+  margin-top: 16px;
+}
+
+.height100 {
+  height: 100%;
+}
+
+.width100 {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-layout);
+  border: 1px solid #dcdce2;
+
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-clip: content-box;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-select {
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* старый Edge */
+  user-select: none;
+}

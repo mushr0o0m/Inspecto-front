@@ -1,0 +1,74 @@
+.toggleSwitch {
+  position: relative;
+  width: 3.2em;
+  height: 1.6em;
+  margin: 0;
+}
+
+.toggleSwitch[data-size='default'] {
+  width: 28px;
+  height: 16px;
+}
+
+.toggleSwitch[data-size='large'] {
+  width: 44px;
+  height: 22px;
+}
+
+.toggleSwitch > input {
+  display: none;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00230b33;
+  transition: 0.4s;
+}
+
+.toggleSlider[data-size='default'] {
+  border-radius: 14px;
+}
+
+.toggleSlider[data-size='large'] {
+  border-radius: 22px;
+}
+
+.toggleSlider:before {
+  position: absolute;
+  content: '';
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px 0px #00230b33;
+}
+
+.toggleSlider[data-size='default']:before {
+  height: 12px;
+  width: 12px;
+  top: 2px;
+  left: 2px;
+}
+
+.toggleSlider[data-size='large']:before {
+  height: 18px;
+  width: 18px;
+  top: 2px;
+  left: 2px;
+}
+
+input:checked + .toggleSlider {
+  background-color: var(--primary) !important;
+}
+
+input:checked + .toggleSlider[data-size='default']:before {
+  transform: translateX(12px);
+}
+
+input:checked + .toggleSlider[data-size='large']:before {
+  transform: translateX(22px);
+}

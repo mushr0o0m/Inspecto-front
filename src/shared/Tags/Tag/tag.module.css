@@ -1,0 +1,61 @@
+.wrapper {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0px 8px;
+  width: fit-content;
+}
+
+.wrapper[data-color='geekblue'] {
+  border-color: #adc6ff;
+  background: #f0f5ff;
+  color: #2f54eb;
+}
+
+.wrapper[data-color='green'] {
+  border-color: #b7eb8f;
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.wrapper[data-color='orange'] {
+  border-color: #ffd591;
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.wrapper[data-color='gray'] {
+  border-color: var(--border-color);
+  background: #00000005;
+  color: #000000e0;
+}
+
+.wrapper[data-color='red'] {
+  border-color: #ffa39e;
+  background: #fff1f0;
+  color: #f5222d;
+}
+
+.wrapper[data-color='cyan'] {
+  border-color: #87e8de;
+  background: #e6fffb;
+  color: #13c2c2;
+}
+
+.wrapper[data-color='purple'] {
+  border-color: #d3adf7;
+  background: #f9f0ff;
+  color: #722ed1;
+}
+
+.wrapper[data-color='blue'] {
+  border-color: #91caff;
+  background: #e6f4ff;
+  color: #1677ff;
+}
+
+.wrapper[data-color='doted'] {
+  border-style: dashed;
+  border-color: var(--border-color);
+  background: #fff;
+  color: var(--text-default);
+}

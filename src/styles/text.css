@@ -1,0 +1,247 @@
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter/Inter-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter/Inter-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter/Inter-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter/Inter-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Tektur;
+  src: url('../assets/fonts/Tektur/Tektur-Medium.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-default {
+  color: var(--text-default);
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-secondary-strong {
+  color: var(--text-secondary-strong) !important;
+}
+
+.text-disabled {
+  color: var(--text-disabled);
+}
+
+.text-error {
+  color: var(--text-error) !important;
+}
+
+.text-error-light {
+  color: var(--error-hover);
+}
+
+.text-warning {
+  color: var(--text-warning) !important;
+}
+
+.text-success {
+  color: var(--text-success) !important;
+}
+
+.text-link {
+  color: var(--text-link) !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text-breadcrumb {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.text-description {
+  color: var(--text-description) !important;
+}
+
+.text-description[data-error='true'] {
+  color: var(--error);
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-placeholder {
+  color: var(--text-placeholder) !important;
+}
+
+.text-heading-1 {
+  color: var(--text-heading);
+  font-size: 38px;
+  line-height: 46px;
+  font-weight: 600;
+}
+
+.text-heading-2 {
+  color: var(--text-heading);
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 600;
+}
+
+.text-heading-3 {
+  color: var(--text-heading);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.text-heading-4 {
+  color: var(--text-heading);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.text-heading-5 {
+  color: var(--text-heading);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.text-heading-6 {
+  color: var(--text-heading);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.text-lg {
+  color: var(--text-heading);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.text-nm {
+  color: var(--text-heading);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.text-nm-bold {
+  color: var(--text-heading);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.text-sm {
+  color: var(--text-heading);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.text-large-stat {
+  color: var(--text-heading);
+  font-size: 38px;
+  line-height: 48px;
+  font-weight: 400;
+}
+
+.text-large-stat-2 {
+  color: var(--text-heading);
+  font-size: 28px;
+  line-height: 48px;
+  font-weight: 400;
+}
+
+.text-caption {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.text-caption-md {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-pre {
+  white-space: pre-wrap;
+}
+
+.link-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.color-inherit {
+  color: inherit !important;
+}

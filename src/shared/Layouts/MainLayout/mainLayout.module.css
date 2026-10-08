@@ -1,0 +1,176 @@
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  height: var(--header-height);
+  background: #fff;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  padding-right: 24px;
+  padding-left: 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.headerShadow {
+  position: absolute;
+  width: calc(100% - 56px);
+  bottom: 0;
+  right: 0;
+
+  box-shadow:
+    0px 2px 4px 0px #00000005,
+    0px 1px 6px -1px #00000005,
+    0px 1px 2px 0px #00000008;
+}
+
+.centerSection {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+}
+
+.headerControls {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.logoImage {
+  height: 10px;
+  cursor: pointer;
+}
+
+.contentWrapper {
+  display: inline-flex;
+  height: 100%;
+}
+
+.nav {
+  background: #fff;
+  padding: 16px 8px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  max-width: 240px;
+  transition: all ease 0.3s;
+  flex-shrink: 0;
+
+  position: relative;
+}
+
+.navShadow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: calc(100% - 8px);
+
+  box-shadow:
+    0px 2px 4px 0px #00000005,
+    0px 1px 6px -1px #00000005,
+    0px 1px 2px 0px #00000008;
+}
+
+.nav[data-open='false'] {
+  max-width: 56px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navFooter {
+  margin-top: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.nav[data-open='false'] .navFooter {
+  padding-left: 12px;
+}
+
+.content {
+  background: var(--bg-layout);
+  display: flex;
+  flex: 1;
+  height: calc(100vh - var(--header-height));
+  border-top-left-radius: 16px;
+}
+
+/* Adaptation for the standalone Inspecto shell. */
+.wrapper {
+  height: 100dvh;
+}
+.contentWrapper {
+  flex: 1;
+  min-height: 0;
+}
+.content {
+  height: auto;
+  min-width: 0;
+  overflow: auto;
+}
+.navFooter {
+  margin-top: auto;
+}
+.brand {
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--primary);
+}
+.navigationItem {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-radius: 8px;
+  color: var(--text-heading);
+  text-decoration: none;
+  font-size: 14px;
+}
+.navigationItem svg {
+  flex-shrink: 0;
+}
+.navigationItem:hover {
+  background: var(--bg-text-hover);
+}
+.navigationItem[aria-current='page'] {
+  color: var(--primary);
+  background: var(--bg-primary);
+}
+.nav[data-open='false'] .navigationItem {
+  width: 40px;
+  padding: 12px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .nav[data-open='true'] {
+    max-width: 180px;
+  }
+  .navFooter {
+    padding: 0 12px;
+  }
+  .navFooter span {
+    display: none;
+  }
+  .navigationItem {
+    gap: 12px;
+  }
+}
+
+/* Keep long tables and accessible captions inside the application viewport. */
+.wrapper {
+  position: relative;
+}
+.content {
+  display: block;
+}

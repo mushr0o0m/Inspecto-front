@@ -1,0 +1,21 @@
+.wrapper {
+  padding: 16px 16px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-secondary-color);
+}
+
+.wrapper[data-active='true'] {
+  background: var(--colorFillQuaternary);
+}
+
+.wrapper[data-clickable='true'] {
+  cursor: pointer;
+}
+
+.wrapper[data-clickable='true']:hover {
+  border: 1px solid var(--primary-hover);
+}
+
+.wrapper[data-clickable='true']:active {
+  background: var(--bg-layout);
+}
