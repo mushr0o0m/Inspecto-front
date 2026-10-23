@@ -17,6 +17,8 @@ export function loadWorkspace(): Workspace | null {
         (h: Workspace['draft']['houses'][number]) =>
           typeof h?.id === 'string' &&
           typeof h.address === 'string' &&
+          (!h.quantities || Object.values(h.quantities).every((n) => typeof n === 'number' && Number.isFinite(n))) &&
+          (!h.assignments || Object.values(h.assignments).every((v) => typeof v === 'string')) &&
           zoneTypes.every((z) => h.zones && (h.zones[z.id] === '' || typeof h.zones[z.id] === 'number'))
       )
     )

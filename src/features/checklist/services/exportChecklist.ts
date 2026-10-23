@@ -1,3 +1,4 @@
+import { exportHeaders, exportRows } from './exportRows.ts'
 import type { Checklist, Draft } from '../types.ts'
 
 export async function buildChecklistWorkbook(checklist: Checklist, draft: Draft) {
@@ -12,31 +13,28 @@ export async function buildChecklistWorkbook(checklist: Checklist, draft: Draft)
     { key: 'task', width: 58 },
     { key: 'frequency', width: 22 },
     { key: 'note', width: 40 },
+    ...[30, 25, 35, 65, 24, 32, 45].map((width) => ({ width })),
   ]
-  sheet.mergeCells('A1:F1')
+  sheet.mergeCells('A1:M1')
   sheet.getCell('A1').value = checklist.title
   sheet.getCell('A1').font = { size: 18, bold: true, color: { argb: 'FF0958D9' } }
   sheet.getRow(1).height = 34
-  sheet.mergeCells('A2:F2')
-  sheet.getCell('A2').value = 'Демонстрационный чек-лист. Состав работ и периодичность требуют согласования.'
+  sheet.mergeCells('A2:M2')
+  sheet.getCell('A2').value = draft.plumbing
+    ? 'Шаблон сантехника: ТО1.1, ТО1, ТО2. Проверьте примечания о количестве и привязке зон.'
+    : 'Демонстрационный чек-лист.'
   sheet.getRow(2).height = 30
   sheet.getRow(2).alignment = { wrapText: true, vertical: 'middle' }
-  sheet.addRow(['№', 'Дом', 'Зона', 'Работа', 'Периодичность', 'Примечание'])
-  sheet.getRow(3).height = 26
+  sheet.addRow(exportHeaders)
+  sheet.getRow(3).height = 60
+  sheet.getRow(3).alignment = { wrapText: true, vertical: 'middle' }
   sheet.getRow(3).eachCell((cell) => {
     cell.font = { bold: true, color: { argb: 'FFFFFFFF' } }
     cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1677FF' } }
   })
-  const houses = new Map(draft.houses.map((h) => [h.id, h.address]))
+  const rows = exportRows(checklist, draft)
   checklist.items.forEach((item, index) => {
-    const row = sheet.addRow([
-      index + 1,
-      houses.get(item.houseId) ?? '',
-      item.zone,
-      item.task,
-      item.frequency,
-      item.note,
-    ])
+    const row = sheet.addRow(rows[index])
     row.alignment = { wrapText: true, vertical: 'top' }
     row.height = Math.max(
       34,
@@ -53,7 +51,7 @@ export async function buildChecklistWorkbook(checklist: Checklist, draft: Draft)
       })
   })
   sheet.views = [{ state: 'frozen', ySplit: 3 }]
-  sheet.autoFilter = { from: 'A3', to: `F${sheet.rowCount}` }
+  sheet.autoFilter = { from: 'A3', to: `M${sheet.rowCount}` }
   return workbook
 }
 

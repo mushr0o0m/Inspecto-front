@@ -12,6 +12,8 @@ export default function ChecklistEditor({
   draft: Draft
   onChange: (value: Checklist) => void
   disabled: boolean
+  focusItem?: string
+  focusField?: string
 }) {
   const [houseId, setHouseId] = useState('')
   const [query, setQuery] = useState('')
@@ -145,6 +147,31 @@ export default function ChecklistEditor({
                     rows={2}
                     onChange={(event) => update(item.id, { task: event.target.value })}
                   />
+                  {draft.plumbing && (
+                    <div className="flex-lines gap8">
+                      {(['room', 'system', 'unit', 'tolerance', 'photo', 'attributes'] as const).map((key, i) => (
+                        <label className="field" key={key}>
+                          {['Помещение', 'Система', 'Узел', 'Диапазон погрешности', 'Фотоотчет', 'Атрибуты'][i]}
+                          {key === 'photo' || key === 'attributes' ? (
+                            <select
+                              value={item[key] ?? 'Нет'}
+                              disabled={disabled}
+                              onChange={(e) => update(item.id, { [key]: e.target.value })}
+                            >
+                              <option>Да</option>
+                              <option>Нет</option>
+                            </select>
+                          ) : (
+                            <textarea
+                              value={item[key] ?? ''}
+                              disabled={disabled}
+                              onChange={(e) => update(item.id, { [key]: e.target.value })}
+                            />
+                          )}
+                        </label>
+                      ))}
+                    </div>
+                  )}
                 </td>
                 <td>
                   <input

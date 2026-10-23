@@ -1,3 +1,4 @@
+import PlumbingDraft from './PlumbingDraft'
 import Button from '@/shared/Buttons/Button'
 import { type Draft, type House, zoneTypes, zoneCount } from '../types'
 
@@ -5,14 +6,28 @@ export default function DraftEditor({
   draft,
   onChange,
   disabled,
+  focusHouse,
+  focusField,
 }: {
   draft: Draft
   onChange: (draft: Draft) => void
   disabled: boolean
+  focusHouse?: string
+  focusField?: string
 }) {
   function updateHouse(id: string, patch: Partial<House>) {
     onChange({ ...draft, houses: draft.houses.map((house) => (house.id === id ? { ...house, ...patch } : house)) })
   }
+  if (draft.plumbing)
+    return (
+      <PlumbingDraft
+        focusHouse={focusHouse}
+        focusField={focusField}
+        draft={draft}
+        onChange={onChange}
+        disabled={disabled}
+      />
+    )
   return (
     <section className="flow-card editor-card">
       <div className="card-toolbar">

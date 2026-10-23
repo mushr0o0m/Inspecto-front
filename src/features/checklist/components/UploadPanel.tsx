@@ -14,8 +14,8 @@ export default function UploadPanel({ onUpload, busy }: { onUpload: (file: File 
       return
     }
     const candidate = files[0]
-    if (!/\.xlsx?$/i.test(candidate.name)) {
-      setError('Поддерживаются только файлы .xlsx и .xls.')
+    if (!/\.xlsx$/i.test(candidate.name)) {
+      setError('Используйте шахматку в формате .xlsx.')
       return
     }
     if (!candidate.size) {
@@ -71,7 +71,7 @@ export default function UploadPanel({ onUpload, busy }: { onUpload: (file: File 
           <input
             ref={input}
             type="file"
-            accept=".xlsx,.xls"
+            accept=".xlsx"
             hidden
             aria-label="Excel-документ шахматки"
             onChange={(event) => {
@@ -79,7 +79,7 @@ export default function UploadPanel({ onUpload, busy }: { onUpload: (file: File 
               event.target.value = ''
             }}
           />
-          <span className="muted small">XLSX или XLS · до 20 МБ · один файл</span>
+          <span className="muted small">XLSX · до 20 МБ · один файл</span>
         </div>
         {error && (
           <p className="error-text" role="alert">
@@ -97,13 +97,12 @@ export default function UploadPanel({ onUpload, busy }: { onUpload: (file: File 
           <Button size="large" type="tetriary" text="Открыть пример" disabled={busy} onClick={() => onUpload(null)} />
         </div>
         <p className="small muted">
-          В деморежиме любой файл открывает один тестовый пример. Содержимое Excel пока не читается и никуда не
-          отправляется.
+          XLSX читается локально. «Открыть пример» загружает шахматку Крауля 105–107. Файл не отправляется на сервер.
         </p>
       </section>
       <aside className="flow-card guide-card">
         <span className="eyebrow">КАК ЭТО РАБОТАЕТ</span>
-        <h2>От таблицы к плану работ</h2>
+        <h2>Шаблон сантехника</h2>
         <div className="guide-item">
           <span>1</span>
           <div>
@@ -125,7 +124,10 @@ export default function UploadPanel({ onUpload, busy }: { onUpload: (file: File 
             <p>Измените работы, добавьте примечания и сохраните или скачайте результат.</p>
           </div>
         </div>
-        <div className="guide-note">Вы контролируете результат на каждом этапе.</div>
+        <div className="guide-note">
+          ТО1.1 — 8 раз в месяц · ТО1 — 1 раз в месяц · ТО2 — 1 раз в три месяца. Годовое и полугодовое ТО не
+          включаются.
+        </div>
       </aside>
     </div>
   )
